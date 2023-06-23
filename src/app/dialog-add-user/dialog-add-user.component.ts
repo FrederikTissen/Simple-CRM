@@ -2,9 +2,10 @@ import { Component, inject } from '@angular/core';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { User } from 'src/models/user.class';
-import { doc, setDoc } from "firebase/firestore";
+import { addDoc, doc, setDoc } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
+import { MatDialogRef } from '@angular/material/dialog';
 
 
 @Component({
@@ -15,6 +16,7 @@ import { getFirestore } from "firebase/firestore";
 export class DialogAddUserComponent {
   firestore: Firestore = inject(Firestore);
 
+
   app = initializeApp(this.firestore.app.options);
 
   db = getFirestore(this.app);
@@ -23,29 +25,31 @@ export class DialogAddUserComponent {
   birthDateUser: Date = new Date;
   date: any;
 
+  loading = false;
+
+  dbRef = collection(this.db, "users");
 
 
-  constructor() {
+  constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) {
 
   }
 
   async saveUser() {
     this.user.birthDate = this.birthDateUser.getTime();
-    console.log('Current user is', this.user);
-    console.log('Current firestore is', this.firestore.app.options);
-    console.log('Current db is', this.db);
+    this.loading = true;
 
+    /*await setDoc(doc(this.db, "users", "one"), this.user.toJSON())
+      .then(doc =>
+        {this.loading = false}
+    );*/
 
-    debugger;
-    /*await setDoc(doc(this.firestore, "cities", "LA"), {
-      user.toJson()
-    });*/
-
-    await setDoc(doc(this.db, "users", "one"), this.user.toJSON);
-
-    //const aCollection = collection(this.firestore, 'users')
-    //this.users$ = collectionData(aCollection);
-
+    addDoc(this.dbRef, this.user.toJSON())
+      .then(docRef => {
+        this.loading = false;
+        console.log("Document has been added successfully");
+        this.dialogRef.close();
+      })
+      
   }
 
 }
