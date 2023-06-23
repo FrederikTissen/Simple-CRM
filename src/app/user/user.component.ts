@@ -18,7 +18,7 @@ import { initializeApp } from 'firebase/app';
 
 export class UserComponent implements OnInit {
 
-  //firestore: Firestore = inject(Firestore);
+  firestore: Firestore = inject(Firestore);
 
   positionOptions: TooltipPosition[] = ['below', 'above', 'left', 'right'];
   position: any = new FormControl(this.positionOptions[1]);
@@ -31,11 +31,14 @@ export class UserComponent implements OnInit {
 
   dbRef = collection(this.db, "users");*/
 
-  
+
   constructor(public dialog: MatDialog) { }
 
   ngOnInit(): void {
     //console.log(this.dbRef);
+
+    //this.firestore.collection('users').valueChanges()
+      //.subscribe(value => this.content = value);
 
     /*this.dbRef.valueChanges.subscribe(value => {
       console.log(value);*/
