@@ -15,6 +15,13 @@
 
     td {
         height: 48px;
+        padding-right: 15px;
+        padding-left: 15px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
     }
 
     th {
@@ -23,5 +30,8 @@
         font-weight: 500;
         text-align: start;
         height: 48px;
+        padding-left: 15px;
+        padding-right: 15px;
+
     }
 }

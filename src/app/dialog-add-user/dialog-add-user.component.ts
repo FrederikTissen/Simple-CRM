@@ -15,10 +15,7 @@ import { MatDialogRef } from '@angular/material/dialog';
 })
 export class DialogAddUserComponent {
   firestore: Firestore = inject(Firestore);
-
-
   app = initializeApp(this.firestore.app.options);
-
   db = getFirestore(this.app);
 
   user = new User();
@@ -32,6 +29,7 @@ export class DialogAddUserComponent {
 
   constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) {
 
+    console.log(this.firestore);
   }
 
   async saveUser() {
