@@ -8,40 +8,49 @@ import { Firestore, collection, getFirestore } from 'firebase/firestore';
 import { collectionData } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { initializeApp } from 'firebase/app';
+import { UserProfile } from 'firebase/auth';
+
+
 
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
-  styleUrls: ['./user.component.scss']
+  styleUrls: ['./user.component.scss'],
+
 })
+
 
 
 export class UserComponent implements OnInit {
 
-  firestore: Firestore = inject(Firestore);
+  private firestore: Firestore = inject(Firestore);
 
   positionOptions: TooltipPosition[] = ['below', 'above', 'left', 'right'];
   position: any = new FormControl(this.positionOptions[1]);
 
   user = new User();
+  users$: Observable<UserProfile[]>;
 
   /*app = initializeApp(this.firestore.app.options);
-
   db = getFirestore(this.app);
-
   dbRef = collection(this.db, "users");*/
 
+  
+  constructor(public dialog: MatDialog) {
+            // get a reference to the user-profile collection
+            const userProfileCollection = collection(this.firestore, 'users');
 
-  constructor(public dialog: MatDialog) { }
+            // get documents (data) from the collection using collectionData
+            this.users$ = collectionData(userProfileCollection) as Observable<UserProfile[]>;
+
+            console.log('Collection of users', this.users$);
+   }
 
   ngOnInit(): void {
     //console.log(this.dbRef);
 
-    //this.firestore.collection('users').valueChanges()
-      //.subscribe(value => this.content = value);
-
-    /*this.dbRef.valueChanges.subscribe(value => {
-      console.log(value);*/
+    //this.afb.valueChanges.subscribe(value => {
+    //console.log(value);
   }
 
 
