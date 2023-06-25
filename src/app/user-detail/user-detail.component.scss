@@ -3,7 +3,8 @@
     background-color: orange;
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
+    justify-content: space-between;
+    align-items: flex-start;
 
     img {
         width: 100px;
@@ -29,4 +30,22 @@
 
 .mt-32 {
     margin-top: 32px;
+}
+
+.header-address {
+    display: flex;
+    justify-content: space-between;
+}
+
+.userMenu-btn {
+    display: flex;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.userMenuField {
+    display: flex;
+    position: absolute;
+    bottom: 0px;
 }
