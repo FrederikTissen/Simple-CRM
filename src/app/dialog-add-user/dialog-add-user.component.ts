@@ -22,6 +22,7 @@ export class DialogAddUserComponent {
   birthDateUser: Date = new Date;
   date: any;
 
+
   loading = false;
 
   dbRef = collection(this.db, "users");
@@ -29,7 +30,7 @@ export class DialogAddUserComponent {
 
   constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) {
 
-    console.log(this.firestore);
+
   }
 
   async saveUser() {
