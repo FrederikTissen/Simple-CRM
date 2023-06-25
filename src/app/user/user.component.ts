@@ -4,9 +4,7 @@ import { TooltipPosition } from '@angular/material/tooltip';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.component';
 import { User } from 'src/models/user.class';
-
 import { Firestore, collection, collectionData, getDocs, getFirestore } from '@angular/fire/firestore';
-
 import { Observable } from 'rxjs';
 import { initializeApp } from 'firebase/app';
 import { UserProfile } from 'firebase/auth';
@@ -14,14 +12,10 @@ import { DocumentData, DocumentReference, doc, getDoc } from 'firebase/firestore
 
 
 
-
-
-
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss'],
-
 })
 
 
