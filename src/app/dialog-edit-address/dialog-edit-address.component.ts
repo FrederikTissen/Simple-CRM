@@ -51,11 +51,17 @@ export class DialogEditAddressComponent implements OnInit {
     .then(()=> {
       console.log('Data Updated', this.updateData);
       this.dialogRef.close()
+      this.refresh();
     })
     .catch((err)=> {
       console.log(err);
       this.dialogRef.close()
     })
+  }
+
+
+  refresh(): void {
+    window.location.reload();
   }
 }
 
