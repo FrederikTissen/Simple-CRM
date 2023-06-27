@@ -30,6 +30,7 @@
 
 .mt-32 {
     margin-top: 32px;
+    margin-bottom: 32px;
 }
 
 .header-address {
@@ -48,4 +49,10 @@
     display: flex;
     position: absolute;
     bottom: 0px;
+}
+
+
+p {
+    word-break: break-word;
+    white-space: pre-wrap;
 }

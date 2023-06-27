@@ -4,6 +4,7 @@ import { Firestore, collection, collectionData, doc, updateDoc } from '@angular/
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { MatDialogRef } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -25,11 +26,12 @@ export class DialogEditUserComponent implements OnInit {
 
   docRef: any;
   updateData: any;
+  
 
 
 
 
-  constructor(public dialogRef: MatDialogRef<DialogEditUserComponent>) {
+  constructor(public dialogRef: MatDialogRef<DialogEditUserComponent>, private router: Router) {
 
   }
 
@@ -45,7 +47,11 @@ export class DialogEditUserComponent implements OnInit {
       .then(() => {
         console.log('Data Updated', this.updateData);
         this.dialogRef.close()
-        this.refresh();
+
+        this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+          this.router.navigate(['/']);
+          this.router.navigate([`/user/${this.userId}`]);
+        });
       })
       .catch((err) => {
         console.log(err);
@@ -54,7 +60,4 @@ export class DialogEditUserComponent implements OnInit {
   }
 
 
-  refresh(): void {
-    window.location.reload();
-  }
 }

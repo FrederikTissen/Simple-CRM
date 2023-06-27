@@ -1,8 +1,13 @@
 <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
-<h1 mat-dialog-title>Add User</h1>
-<div mat-dialog-content>
+<h1 mat-dialog-title class="add-user-title">Add User</h1>
+<div style="overflow: visible" mat-dialog-content>
 
-    <div  class="input-box ">
+    <mat-radio-group [(ngModel)]="user.sex">
+        <mat-radio-button color="primary" value="female">Female</mat-radio-button>
+        <mat-radio-button color="primary" value="male">Male</mat-radio-button>
+    </mat-radio-group>
+
+    <div class="input-box ">
         <mat-form-field class="mr-16" appearance="outline">
             <mat-label>First Name</mat-label>
             <input [disabled]="loading" [(ngModel)]="user.firstName" matInput>

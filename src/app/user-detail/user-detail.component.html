@@ -1,6 +1,4 @@
 <mat-card class="user-detail-header">
-
-
     <div class="userMenuField">
         <img src="assets/img/profile-bob.png" alt="">
 
@@ -11,23 +9,17 @@
     </div>
 
     <div class="userMenu-btn">
-        <button mat-icon-button [matMenuTriggerFor]="userMenu">
+        <button mat-icon-button (click)="editUserDetail()">
             <mat-icon>more_vert</mat-icon>
         </button>
-        <mat-menu #userMenu="matMenu">
-            <button mat-menu-item (click)="editUserDetail()">Edit</button>
-        </mat-menu>
     </div>
 </mat-card>
 
 <mat-card class="mt-32">
     <mat-card-header class="header-address">
-        <button mat-icon-button [matMenuTriggerFor]="addressMenu">
+        <button mat-icon-button (click)="editAddress()">
             <mat-icon>more_vert</mat-icon>
         </button>
-        <mat-menu #addressMenu="matMenu">
-            <button mat-menu-item (click)="editMenu()">Edit</button>
-        </mat-menu>
         <mat-card-title>Address</mat-card-title>
     </mat-card-header>
     <mat-card-content>
@@ -35,7 +27,54 @@
             {{ user.street }} <br>
             {{ user.zipCode }} {{ user.city }}
         </p>
-
     </mat-card-content>
+</mat-card>
 
+
+<mat-card class="mt-32">
+    <mat-card-header class="header-address">
+        <button mat-icon-button (click)="editBankDetails()">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-card-title>Bank details</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p>
+            {{ user.bank }} <br>
+            {{ user.iban }} <br>
+            {{ user.payment }}
+        </p>
+    </mat-card-content>
+</mat-card>
+
+<mat-card class="mt-32">
+    <mat-card-header class="header-address">
+        <button mat-icon-button (click)="editNotice()">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-card-title>Notice</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p>
+            {{ user.notice }} 
+        </p>
+    </mat-card-content>
+</mat-card>
+
+
+<mat-card class="mt-32">
+    <mat-card-header class="header-address">
+        <button mat-icon-button (click)="editFeedback()">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-card-title>Feedback</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <!--<p>
+            {{ user.feedbackstatus }} 
+        </p>-->
+        <p>
+            {{ user.feedback }} 
+        </p>
+    </mat-card-content>
 </mat-card>

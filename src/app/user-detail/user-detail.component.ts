@@ -9,6 +9,9 @@ import { User } from 'src/models/user.class';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogEditAddressComponent } from '../dialog-edit-address/dialog-edit-address.component';
 import { DialogEditUserComponent } from '../dialog-edit-user/dialog-edit-user.component';
+import { DialogEditBankDetailsComponent } from '../dialog-edit-bank-details/dialog-edit-bank-details.component';
+import { DialogEditNoticeComponent } from '../dialog-edit-notice/dialog-edit-notice.component';
+import { DialogEditFeedbackComponent } from '../dialog-edit-feedback/dialog-edit-feedback.component';
 
 @Component({
   selector: 'app-user-detail',
@@ -61,11 +64,31 @@ export class UserDetailComponent implements OnInit {
     dialog.componentInstance.userId = this.userId;
   }
 
-  editMenu() {
+  editAddress() {
     let dialog = this.dialog.open(DialogEditAddressComponent);
     dialog.componentInstance.user = new User(this.user);
     dialog.componentInstance.userId = this.userId;
   }
+
+  editBankDetails() {
+    let dialog = this.dialog.open(DialogEditBankDetailsComponent);
+    dialog.componentInstance.user = new User(this.user);
+    dialog.componentInstance.userId = this.userId;
+  }
+
+
+  editNotice() {
+    let dialog = this.dialog.open(DialogEditNoticeComponent);
+    dialog.componentInstance.user = new User(this.user);
+    dialog.componentInstance.userId = this.userId;
+  }
+
+  editFeedback() {
+    let dialog = this.dialog.open(DialogEditFeedbackComponent);
+    dialog.componentInstance.user = new User(this.user);
+    dialog.componentInstance.userId = this.userId;
+  }
+
 }
 
 

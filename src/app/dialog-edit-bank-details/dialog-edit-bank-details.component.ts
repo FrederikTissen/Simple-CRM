@@ -5,12 +5,14 @@ import { Firestore, collection, doc, getFirestore, updateDoc } from '@angular/fi
 import { initializeApp } from 'firebase/app';
 import { Router } from '@angular/router';
 
+
 @Component({
-  selector: 'app-dialog-edit-address',
-  templateUrl: './dialog-edit-address.component.html',
-  styleUrls: ['./dialog-edit-address.component.scss']
+  selector: 'app-dialog-edit-bank-details',
+  templateUrl: './dialog-edit-bank-details.component.html',
+  styleUrls: ['./dialog-edit-bank-details.component.scss']
 })
-export class DialogEditAddressComponent implements OnInit {
+export class DialogEditBankDetailsComponent implements OnInit {
+
   firestore: Firestore = inject(Firestore);
   app = initializeApp(this.firestore.app.options);
   db = getFirestore(this.app);
@@ -22,8 +24,7 @@ export class DialogEditAddressComponent implements OnInit {
   user!: User;
   loading = false;
 
-
-  constructor(public dialogRef: MatDialogRef<DialogEditAddressComponent>, private router: Router) {
+  constructor(public dialogRef: MatDialogRef<DialogEditBankDetailsComponent>, private router: Router) {
 
   }
 
@@ -55,9 +56,4 @@ export class DialogEditAddressComponent implements OnInit {
     })
   }
 
-
-
 }
-
-
-

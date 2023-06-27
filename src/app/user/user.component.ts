@@ -55,6 +55,12 @@ export class UserComponent implements OnInit {
   openDialog() {
     this.dialog.open(DialogAddUserComponent);
   }
+
+
+  deleteUser() {
+    
+  }
+
 }
 
 

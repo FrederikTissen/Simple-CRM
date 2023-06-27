@@ -8,7 +8,12 @@
     <tr *ngFor="let user of allUsers" [routerLink]="['/user/' + user.id]">
       <td>{{ user.firstName }} {{ user.lastName }}</td>
       <td>{{ user.email }}</td>
-      <td>{{ user.city }}</td>
+      <td>{{ user.city }} </td>
+      <td>
+        <button (click)="deleteUser()" mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </td>
     </tr>
   </table>
 </mat-card>

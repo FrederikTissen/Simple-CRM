@@ -6,11 +6,12 @@ import { initializeApp } from 'firebase/app';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-dialog-edit-address',
-  templateUrl: './dialog-edit-address.component.html',
-  styleUrls: ['./dialog-edit-address.component.scss']
+  selector: 'app-dialog-edit-feedback',
+  templateUrl: './dialog-edit-feedback.component.html',
+  styleUrls: ['./dialog-edit-feedback.component.scss']
 })
-export class DialogEditAddressComponent implements OnInit {
+export class DialogEditFeedbackComponent implements OnInit {
+
   firestore: Firestore = inject(Firestore);
   app = initializeApp(this.firestore.app.options);
   db = getFirestore(this.app);
@@ -23,7 +24,7 @@ export class DialogEditAddressComponent implements OnInit {
   loading = false;
 
 
-  constructor(public dialogRef: MatDialogRef<DialogEditAddressComponent>, private router: Router) {
+  constructor(public dialogRef: MatDialogRef<DialogEditFeedbackComponent>, private router: Router) {
 
   }
 
@@ -55,9 +56,4 @@ export class DialogEditAddressComponent implements OnInit {
     })
   }
 
-
-
 }
-
-
-

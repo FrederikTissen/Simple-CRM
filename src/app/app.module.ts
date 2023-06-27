@@ -31,6 +31,12 @@ import { UserDetailComponent } from './user-detail/user-detail.component';
 import { MatMenuModule } from '@angular/material/menu';
 import { DialogEditAddressComponent } from './dialog-edit-address/dialog-edit-address.component';
 import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.component';
+import { DialogEditBankDetailsComponent } from './dialog-edit-bank-details/dialog-edit-bank-details.component';
+import { DialogEditNoticeComponent } from './dialog-edit-notice/dialog-edit-notice.component';
+import { DialogEditFeedbackComponent } from './dialog-edit-feedback/dialog-edit-feedback.component';
+import { MatRadioModule } from '@angular/material/radio';
+
+
 
 
 @NgModule({
@@ -41,7 +47,10 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
     DialogAddUserComponent,
     UserDetailComponent,
     DialogEditAddressComponent,
-    DialogEditUserComponent
+    DialogEditUserComponent,
+    DialogEditBankDetailsComponent,
+    DialogEditNoticeComponent,
+    DialogEditFeedbackComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +70,7 @@ import { DialogEditUserComponent } from './dialog-edit-user/dialog-edit-user.com
     MatNativeDateModule,
     MatMenuModule,
     FormsModule,
+    MatRadioModule,
     MatCardModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),

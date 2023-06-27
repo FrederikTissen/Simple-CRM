@@ -11,6 +11,10 @@
 
     tr {
         border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+
+        &:hover {
+            background-color: rgba(0, 0, 0, 0.1);
+        }
     }
 
     td {
@@ -18,10 +22,6 @@
         padding-right: 15px;
         padding-left: 15px;
         cursor: pointer;
-
-        &:hover {
-            background-color: rgba(0, 0, 0, 0.1);
-        }
     }
 
     th {
@@ -33,5 +33,9 @@
         padding-left: 15px;
         padding-right: 15px;
 
+    }
+
+    button {
+        scale: 0.7;
     }
 }
