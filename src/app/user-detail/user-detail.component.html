@@ -1,6 +1,7 @@
 <mat-card class="user-detail-header">
     <div class="userMenuField">
-        <img src="assets/img/profile-bob.png" alt="">
+        <img *ngIf="user.sex == 'male'" src="assets/img/male.png" alt="">
+        <img *ngIf="user.sex == 'female'" src="assets/img/female.png" alt="">
 
         <div class="user-details" >
             <h2>{{ user.firstName }} {{ user.lastName }}</h2>
@@ -9,9 +10,13 @@
     </div>
 
     <div class="userMenu-btn">
-        <button mat-icon-button (click)="editUserDetail()">
+        <button [matMenuTriggerFor]="menu" mat-icon-button >
             <mat-icon>more_vert</mat-icon>
         </button>
+        <mat-menu #menu="matMenu">
+            <button (click)="editUserDetail()" mat-menu-item>Edit user</button>
+            <button (click)="deleteUser()" routerLink="/user" mat-menu-item>Delete user</button>
+          </mat-menu>
     </div>
 </mat-card>
 
@@ -67,7 +72,7 @@
         <button mat-icon-button (click)="editFeedback()">
             <mat-icon>more_vert</mat-icon>
         </button>
-        <mat-card-title>Feedback</mat-card-title>
+        <mat-card-title>Feedback of User</mat-card-title>
     </mat-card-header>
     <mat-card-content>
         <!--<p>

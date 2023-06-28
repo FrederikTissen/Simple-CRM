@@ -6,10 +6,8 @@ import { DialogAddUserComponent } from '../dialog-add-user/dialog-add-user.compo
 import { User } from 'src/models/user.class';
 import { Firestore, collection, collectionData, getDocs, getFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { initializeApp } from 'firebase/app';
 import { UserProfile } from 'firebase/auth';
-import { DocumentData, DocumentReference, doc, getDoc } from 'firebase/firestore';
-
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -17,7 +15,6 @@ import { DocumentData, DocumentReference, doc, getDoc } from 'firebase/firestore
   templateUrl: './user.component.html',
   styleUrls: ['./user.component.scss'],
 })
-
 
 
 export class UserComponent implements OnInit {
@@ -28,23 +25,19 @@ export class UserComponent implements OnInit {
   user = new User();
   users$: Observable<UserProfile[]>;
   allUsers: any = [];
-  docsSnap: any;
 
   colRef: any;
 
 
 
+  constructor(public dialog: MatDialog, private route: ActivatedRoute) {
 
-
-  constructor(public dialog: MatDialog) {
-
-    //this.colRef = collection(this.firestore, 'users');
+    this.colRef = collection(this.firestore, 'users');
     
-    this.users$ = collectionData(collection(this.firestore, 'users'), { idField: 'id'}) as Observable<UserProfile[]>;
+    this.users$ = collectionData(this.colRef, { idField: 'id'}) as Observable<UserProfile[]>;
 
     this.users$.subscribe((changes: any) => {
       this.allUsers = changes;
-      console.log('Collection of users', changes);
     });
   }
 
@@ -56,11 +49,8 @@ export class UserComponent implements OnInit {
     this.dialog.open(DialogAddUserComponent);
   }
 
-
-  deleteUser() {
-    
-  }
-
 }
+
+
 
 

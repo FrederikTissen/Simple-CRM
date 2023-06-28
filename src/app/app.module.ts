@@ -35,6 +35,14 @@ import { DialogEditBankDetailsComponent } from './dialog-edit-bank-details/dialo
 import { DialogEditNoticeComponent } from './dialog-edit-notice/dialog-edit-notice.component';
 import { DialogEditFeedbackComponent } from './dialog-edit-feedback/dialog-edit-feedback.component';
 import { MatRadioModule } from '@angular/material/radio';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
+
+
+import { MatTableModule } from '@angular/material/table';
+import { EmailChartComponent } from './email-chart/email-chart.component';
+
+
+
 
 
 
@@ -50,7 +58,9 @@ import { MatRadioModule } from '@angular/material/radio';
     DialogEditUserComponent,
     DialogEditBankDetailsComponent,
     DialogEditNoticeComponent,
-    DialogEditFeedbackComponent
+    DialogEditFeedbackComponent,
+    BarChartComponent,
+    EmailChartComponent
   ],
   imports: [
     BrowserModule,
