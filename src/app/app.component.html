@@ -7,7 +7,7 @@
       <li routerLink='/'><mat-icon>fact_check</mat-icon>Dashboard</li>
       <li routerLink='/user'><mat-icon>perm_identity</mat-icon>User</li>
       <li routerLink='/calender'><mat-icon>event</mat-icon>Calender</li>
-      <li matTooltip="No function" aria-label="Button that displays a tooltip when focused or hovered over">
+      <!--<li matTooltip="No function" aria-label="Button that displays a tooltip when focused or hovered over">
         <mat-icon>description</mat-icon>Reports
       </li>
       <li matTooltip="No function" aria-label="Button that displays a tooltip when focused or hovered over">
@@ -15,11 +15,14 @@
       </li>
       <li matTooltip="No function" aria-label="Button that displays a tooltip when focused or hovered over">
         <mat-icon>contact_phone</mat-icon>Contacts
+      </li>-->
+      <li (click)="openDescription()">
+        <mat-icon>announcement</mat-icon>Description
       </li>
-      <li matTooltip="No function" aria-label="Button that displays a tooltip when focused or hovered over">
-        <mat-icon>settings</mat-icon>Settings
+      <li (click)="openPrivacyPolicy()">
+        <mat-icon>lock</mat-icon>Privacy policy
       </li>
-      <li matTooltip="No function" aria-label="Button that displays a tooltip when focused or hovered over">
+      <li (click)="openLegalNotice()" >
         <mat-icon>poll</mat-icon>Legal Notice</li>
     </ul>
 

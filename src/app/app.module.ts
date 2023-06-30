@@ -46,6 +46,9 @@ import { CommonModule } from '@angular/common';
 
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
+import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
+import { DescriptionComponent } from './description/description.component';
 
 
 
@@ -68,7 +71,10 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     DialogEditFeedbackComponent,
     BarChartComponent,
     EmailChartComponent,
-    CalenderComponent
+    CalenderComponent,
+    LegalNoticeComponent,
+    PrivacyPolicyComponent,
+    DescriptionComponent
   ],
   imports: [
     BrowserModule,
