@@ -19,11 +19,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
-import { provideAuth,getAuth } from '@angular/fire/auth';
-import { provideDatabase,getDatabase } from '@angular/fire/database';
-import { provideFirestore,getFirestore } from '@angular/fire/firestore';
+import { provideAuth, getAuth } from '@angular/fire/auth';
+import { provideDatabase, getDatabase } from '@angular/fire/database';
+import { provideFirestore, getFirestore } from '@angular/fire/firestore';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatCardModule } from '@angular/material/card';
 import { HttpClientModule } from '@angular/common/http';
@@ -37,9 +37,15 @@ import { DialogEditFeedbackComponent } from './dialog-edit-feedback/dialog-edit-
 import { MatRadioModule } from '@angular/material/radio';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
 
-
 import { MatTableModule } from '@angular/material/table';
 import { EmailChartComponent } from './email-chart/email-chart.component';
+import { CalenderComponent } from './calender/calender.component';
+
+import { CommonModule } from '@angular/common';
+
+
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 
 
@@ -50,6 +56,7 @@ import { EmailChartComponent } from './email-chart/email-chart.component';
 @NgModule({
   declarations: [
     AppComponent,
+
     DashboardComponent,
     UserComponent,
     DialogAddUserComponent,
@@ -60,12 +67,18 @@ import { EmailChartComponent } from './email-chart/email-chart.component';
     DialogEditNoticeComponent,
     DialogEditFeedbackComponent,
     BarChartComponent,
-    EmailChartComponent
+    EmailChartComponent,
+    CalenderComponent
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     HttpClientModule,
     AppRoutingModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
     BrowserAnimationsModule,
     MatToolbarModule,
     MatSidenavModule,
@@ -90,6 +103,6 @@ import { EmailChartComponent } from './email-chart/email-chart.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { 
+export class AppModule {
 
 }
