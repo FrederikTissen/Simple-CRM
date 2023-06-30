@@ -1,4 +1,19 @@
-.dashboard {
+/*.dashboard {
     display: flex;
     justify-content: space-between;
+}*/
+
+.first-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 32px;
+}
+
+.first-row-component {
+    width: 30%;
+}
+
+.total-number {
+    padding-top: 43px;
+    font-size: clamp(16px,3.5vw,55px);
 }

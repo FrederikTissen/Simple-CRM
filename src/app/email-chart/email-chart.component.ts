@@ -19,17 +19,17 @@ export class EmailChartComponent implements OnInit {
 
   createEmailChart() {
 
-    let xValues = ["Email send", "Received"];
+    //let xValues = ["Email send", "Received"];
     let yValues = [35, 45];
     let barColors = [
-      "#e8c3b9",
-      "#1e7145"
+      "#f9c732",
+      "#303942"
     ];
 
     this.chart = new Chart("MyEmailChart", {
       type: "doughnut",
       data: {
-        labels: xValues,
+        //labels: xValues,
         datasets: [{
           backgroundColor: barColors,
           data: yValues
@@ -39,9 +39,11 @@ export class EmailChartComponent implements OnInit {
         plugins: {
             title: {
                 display: true,
-                text: 'Email activity'
             }
-        }
+        },
+        rotation: -90,
+        circumference: 180,
+        aspectRatio: 1.5
     }
     });
   }

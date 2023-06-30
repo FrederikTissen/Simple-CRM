@@ -1,17 +1,21 @@
 .example-container {
     height: 100vh;
+    background-color: rgb(237, 237, 235);
 }
 
 .menu-icon {
     cursor: pointer;
+    padding-right: 16px;
 }
 
 .sidenav {
-    width: 300px;
+    width: 200px;
+    background-color: rgba(52, 61, 70);
+    color: white;
 }
 
 .logo-container {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    //border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     padding-left: 16px;
     padding-right: 16px;
     min-height: 56px;
@@ -41,7 +45,7 @@
         }
 
         &:hover {
-            background-color: rgba(0, 0, 0, 0.1);
+            background-color: rgba(0, 0, 0, 0.3);
         }
     }
  }
@@ -50,6 +54,9 @@
     padding-left: 56px;
     padding-right: 56px;
     padding-top: 16px;
+    padding-bottom: 16px;
+    max-width: 1000px;
+    margin-top: 32px;
  }
 
  

@@ -1,6 +1,39 @@
 <div class="dashboard">
-    <app-bar-chart></app-bar-chart>
-    <app-email-chart></app-email-chart>
+
+    <div class="first-row">
+        <mat-card class="mt-32 first-row-component">
+            <mat-card-content>
+                <mat-card-title>Total today</mat-card-title>
+                <mat-card-title class="total-number">100.304&euro;</mat-card-title>
+
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="mt-32 first-row-component">
+            <mat-card-content>
+                <mat-card-title>Total target</mat-card-title>
+                <mat-card-title class="total-number">120.000&euro;</mat-card-title>
+
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="mt-32 first-row-component">
+            <mat-card-content>
+                <mat-card-title>Email activity</mat-card-title>
+
+                <app-email-chart></app-email-chart>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <mat-card class="mt-32">
+        <mat-card-content>
+            <app-bar-chart></app-bar-chart>
+        </mat-card-content>
+    </mat-card>
+
+
+
 </div>
 
 
