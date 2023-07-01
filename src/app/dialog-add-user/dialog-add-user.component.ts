@@ -43,7 +43,6 @@ export class DialogAddUserComponent {
         console.log("Document has been added successfully");
         this.dialogRef.close();
       })
-      
   }
 
 }
