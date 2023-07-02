@@ -4,8 +4,11 @@
 }
 
 .menu-icon {
-    cursor: pointer;
     padding-right: 16px;
+}
+
+.pointer {
+    cursor: pointer;
 }
 
 .sidenav {
@@ -14,8 +17,18 @@
     color: white;
 }
 
+.logout-img {
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border-style: 2px black;
+    background-color: #f9c732;
+    display: flex;
+    position: absolute;
+    right: 20px;
+}
+
 .logo-container {
-    //border-bottom: 1px solid rgba(0, 0, 0, 0.2);
     padding-left: 16px;
     padding-right: 16px;
     min-height: 56px;
@@ -70,6 +83,16 @@
     bottom: 0;
     z-index: 1001;
     background-color: white;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+}
+
+.warning-input {
+    width: 100%; 
+    color: red;
 }
 
  

@@ -49,7 +49,9 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { DescriptionComponent } from './description/description.component';
-import { LoginComponent } from './login/login.component';
+
+
+
 
 
 
@@ -75,8 +77,8 @@ import { LoginComponent } from './login/login.component';
     CalenderComponent,
     LegalNoticeComponent,
     PrivacyPolicyComponent,
-    DescriptionComponent,
-    LoginComponent
+    DescriptionComponent
+
   ],
   imports: [
     BrowserModule,

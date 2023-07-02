@@ -24,8 +24,8 @@ export class BarChartComponent implements OnInit {
       type: 'bar', //this denotes tha type of chart
 
       data: {// values on X-Axis
-        labels: ['2022-05-10', '2022-05-11', '2022-05-12','2022-05-13',
-								 '2022-05-14', '2022-05-15', '2022-05-16','2022-05-17', ], 
+        labels: ['2022-07-27', '2022-07-28', '2022-07-29','2023-06-30',
+								 '2023-07-01', '2023-07-02', '2023-07-03','2023-07-04', ], 
 	       datasets: [
           {
             label: "Sales",

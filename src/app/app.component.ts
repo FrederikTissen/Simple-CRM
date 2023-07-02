@@ -1,17 +1,14 @@
-import { Component, Input, ViewChild, inject } from '@angular/core';
+import { Component, ViewChild, inject } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { DescriptionComponent } from './description/description.component';
-import { LoginComponent } from './login/login.component';
 import { Firestore, collection, collectionData } from '@angular/fire/firestore';
 import { UserLogin } from 'src/models/userLogin.class';
 import { Observable } from 'rxjs';
 import { UserProfile } from 'firebase/auth';
 import { initializeApp } from 'firebase/app';
-import { addDoc, doc, getFirestore, setDoc } from 'firebase/firestore';
-
-
+import { addDoc, getFirestore } from 'firebase/firestore';
 
 
 @Component({
@@ -28,16 +25,12 @@ export class AppComponent {
   private firestore: Firestore = inject(Firestore);
   app = initializeApp(this.firestore.app.options);
   db = getFirestore(this.app);
-
-  userLogin = new UserLogin();
-  userLogin$!: Observable<UserProfile[]>;
-  title = 'simple-crm';
-  allUserLogin: any = [];
-
-
   dbRef: any;
 
-
+  allUserLogin: any = [];
+  userLogin = new UserLogin();
+  userLogin$!: Observable<UserProfile[]>;
+  falseLoginData: any = false;
   login: boolean = true;
   signUp: boolean = false;
   loginBackground: boolean = true;
@@ -45,78 +38,33 @@ export class AppComponent {
 
   constructor(public dialog: MatDialog) {
     this.openDescription();
-    //this.openLogin();
     this.dbRef = collection(this.firestore, 'userLogin');
-    
-    this.userLogin$ = collectionData(this.dbRef, { idField: 'id'}) as Observable<UserProfile[]>;
-
+    this.userLogin$ = collectionData(this.dbRef, { idField: 'id' }) as Observable<UserProfile[]>;
     this.userLogin$.subscribe((changes: any) => {
       this.allUserLogin = changes;
-    console.log(this.allUserLogin);
-
     });
-
-
-
-  }
-
-
-  openLegalNotice() {
-    let dialog = this.dialog.open(LegalNoticeComponent);
-  }
-
-  openPrivacyPolicy() {
-    let dialog = this.dialog.open(PrivacyPolicyComponent);
-  }
-
-  openDescription() {
-    let dialog = this.dialog.open(DescriptionComponent);
-  }
-
-  openLogin() {
-    let dialog = this.dialog.open(LoginComponent);
-  }
-
-  openSignIn() {
-    this.login = false;
-    this.signUp = true;
-  }
-
-  closeSignIn() {
-    this.login = true;
-    this.signUp = false;
   }
 
 
   async saveUserLogin() {
-    //await setDoc(doc(this.db, "userLogin", "newUser"), this.userLogin.toJSON());
-
-
-
     this.dbRef = collection(this.db, 'userLogin');
-
-
     this.userLogin$ = collectionData(this.dbRef, { idField: 'id' }) as Observable<UserProfile[]>;
-
     this.userLogin$.subscribe((changes: any) => {
       this.allUserLogin = changes;
       console.log('Login', this.allUserLogin);
     });
 
-    //console.log('before', this.userLogin);
-
 
     addDoc(this.dbRef, this.userLogin.toJSON())
       .then(docRef => {
-        //this.loading = false;
         this.clearAllFields();
 
         setTimeout(() => {
           this.closeSignIn();
         }, 1000);
-        //console.log('allLogin users', this.allUserLogin);
       })
   }
+
 
   clearAllFields() {
     this.userLogin.firstName = '';
@@ -132,22 +80,53 @@ export class AppComponent {
 
     for (let i = 0; i < this.allUserLogin.length; i++) {
       const element = this.allUserLogin[i];
-
-
       if (element.email == email) {
-  
         if (element.password == passwort) {
-          this.login = false;
-          this.loginBackground = false;
+          this.loginGuest()
         }
       } else {
-        console.log('Login failed');
+        this.falseLoginData = true;
       }
     }
+  }
 
-    //console.log('all searched emails', searchedEmail);
 
-    //console.log(searchedUser);
-    //console.log(this.allUserLogin);
+
+  loginGuest() {
+    this.login = false;
+    this.loginBackground = false;
+    this.falseLoginData = false;
+  }
+
+  logUserOut() {
+    this.login = true;
+    this.loginBackground = true;
+    this.falseLoginData = false;
+  }
+
+
+  openLegalNotice() {
+    let dialog = this.dialog.open(LegalNoticeComponent);
+  }
+
+
+  openPrivacyPolicy() {
+    let dialog = this.dialog.open(PrivacyPolicyComponent);
+  }
+
+
+  openDescription() {
+    let dialog = this.dialog.open(DescriptionComponent);
+  }
+
+
+  openSignIn() {
+    this.login = false;
+    this.signUp = true;
+  }
+
+  closeSignIn() {
+    this.login = true;
+    this.signUp = false;
   }
 }
