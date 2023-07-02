@@ -36,7 +36,7 @@
 </mat-drawer-container>
 <div *ngIf="loginBackground == true" class="login-background">
   <mat-card style="width: 300px;" *ngIf="login == true" class="mt-32">
-    <mat-card-header class="header-address">
+    <mat-card-header class="header-address mb-16">
       <mat-card-title>Login</mat-card-title>
     </mat-card-header>
     <mat-card-content>
@@ -53,7 +53,7 @@
             address</mat-hint>
         </mat-form-field>
       </div>
-      <div mat-dialog-actions>
+      <div mat-dialog-actions class="login-btn">
         <button (click)="loginApp()" mat-button cdkFocusInitial>Login</button>
         <button (click)="loginGuest()" mat-button cdkFocusInitial>Guest login</button>
         <button (click)="openSignIn()" mat-button cdkFocusInitial>Sign in</button>
@@ -61,7 +61,7 @@
     </mat-card-content>
   </mat-card>
   <mat-card *ngIf="signUp == true" class="mt-32">
-    <mat-card-header class="header-address">
+    <mat-card-header class="header-address mb-16">
       <mat-card-title>Sign Up</mat-card-title>
     </mat-card-header>
     <mat-card-content>
@@ -88,6 +88,16 @@
         <button (click)="saveUserLogin()" mat-button cdkFocusInitial>Save</button>
       </div>
     </mat-card-content>
+  </mat-card>
+
+  <mat-card  class="login-background-message">
+    <mat-card-header class="message">
+      <mat-card-title>To use this CRM your screen needs 
+        <br> a minimum width of 720px.<br> <br>
+        Please turn your screen or use a tablet/laptop! 
+      
+    </mat-card-title>
+    </mat-card-header>
   </mat-card>
 
 </div>

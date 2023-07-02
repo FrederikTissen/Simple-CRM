@@ -49,6 +49,7 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
 import { PrivacyPolicyComponent } from './privacy-policy/privacy-policy.component';
 import { DescriptionComponent } from './description/description.component';
+import { LineChartComponent } from './line-chart/line-chart.component';
 
 
 
@@ -77,7 +78,8 @@ import { DescriptionComponent } from './description/description.component';
     CalenderComponent,
     LegalNoticeComponent,
     PrivacyPolicyComponent,
-    DescriptionComponent
+    DescriptionComponent,
+    LineChartComponent
 
   ],
   imports: [
