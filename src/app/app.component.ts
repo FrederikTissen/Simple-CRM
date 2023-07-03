@@ -22,7 +22,6 @@ export class AppComponent {
   @ViewChild('email') emailInput: any;
   @ViewChild('password') passwordInput: any;
 
-  private firestore: Firestore = inject(Firestore);
   app = initializeApp(this.firestore.app.options);
   db = getFirestore(this.app);
   dbRef: any;
@@ -36,7 +35,8 @@ export class AppComponent {
   loginBackground: boolean = true;
 
 
-  constructor(public dialog: MatDialog) {
+  
+  constructor(public dialog: MatDialog, private firestore: Firestore = inject(Firestore)) {
     this.openDescription();
     this.dbRef = collection(this.firestore, 'userLogin');
     this.userLogin$ = collectionData(this.dbRef, { idField: 'id' }) as Observable<UserProfile[]>;
@@ -53,8 +53,6 @@ export class AppComponent {
       this.allUserLogin = changes;
       console.log('Login', this.allUserLogin);
     });
-
-
     addDoc(this.dbRef, this.userLogin.toJSON())
       .then(docRef => {
         this.clearAllFields();
@@ -77,12 +75,13 @@ export class AppComponent {
   loginApp() {
     let email: string = this.loginEmail.nativeElement.value;
     let passwort = this.loginPassword.nativeElement.value;
-
     for (let i = 0; i < this.allUserLogin.length; i++) {
       const element = this.allUserLogin[i];
       if (element.email == email) {
         if (element.password == passwort) {
           this.loginGuest()
+        } else {
+          this.falseLoginData = true;
         }
       } else {
         this.falseLoginData = true;
@@ -91,12 +90,12 @@ export class AppComponent {
   }
 
 
-
   loginGuest() {
     this.login = false;
     this.loginBackground = false;
     this.falseLoginData = false;
   }
+
 
   logUserOut() {
     this.login = true;
@@ -125,6 +124,7 @@ export class AppComponent {
     this.signUp = true;
   }
 
+  
   closeSignIn() {
     this.login = true;
     this.signUp = false;

@@ -28,15 +28,18 @@
     }
 }
 
+
 .mt-32 {
     margin-top: 32px;
     margin-bottom: 32px;
 }
 
+
 .header-address {
     display: flex;
     justify-content: space-between;
 }
+
 
 .userMenu-btn {
     display: flex;
@@ -44,6 +47,7 @@
     right: 10px;
     top: 10px;
 }
+
 
 .userMenuField {
     display: flex;
@@ -55,4 +59,11 @@
 p {
     word-break: break-word;
     white-space: pre-wrap;
+}
+
+
+@media (max-width: 1050px) {
+    .user-detail-header {
+        min-height: 150px;
+    }
 }

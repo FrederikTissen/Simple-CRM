@@ -9,7 +9,6 @@ import { Chart } from 'chart.js/auto';
 export class LineChartComponent implements OnInit {
   public chart: any;
  
-
   constructor() { }
 
   ngOnInit(): void {
@@ -17,11 +16,9 @@ export class LineChartComponent implements OnInit {
   }
 
   createChart(){
-  
     this.chart = new Chart("MyLineChart", {
-      type: 'line', //this denotes tha type of chart
-
-      data: {// values on X-Axis
+      type: 'line', 
+      data: {
         labels: ['January', 'February', 'March','April',
 								 'Mai', 'June', 'Juli', ], 
 	       datasets: [
@@ -42,7 +39,6 @@ export class LineChartComponent implements OnInit {
       options: {
         aspectRatio:2.5
       }
-      
     });
   }
 }

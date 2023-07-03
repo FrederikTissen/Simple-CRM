@@ -17,19 +17,15 @@ import { DialogEditFeedbackComponent } from '../dialog-edit-feedback/dialog-edit
   styleUrls: ['./user-detail.component.scss']
 })
 export class UserDetailComponent implements OnInit {
-  private firestore: Firestore = inject(Firestore);
-
   app = initializeApp(this.firestore.app.options);
   db = getFirestore(this.app);
   docRef: any;
-
-
   userId: any;
   user: User = new User();
   docSnap: any;
 
 
-  constructor(private route: ActivatedRoute, public dialog: MatDialog, private cd: ChangeDetectorRef) {}
+  constructor(private route: ActivatedRoute, public dialog: MatDialog, private cd: ChangeDetectorRef, private firestore: Firestore = inject(Firestore)) {}
 
   ngOnInit(): void {
     this.route.paramMap.subscribe(paramMap => {
@@ -47,10 +43,10 @@ export class UserDetailComponent implements OnInit {
 
 
   async deleteUser() {
-
     this.docRef = doc(this.db, "users", this.userId);
     await deleteDoc(this.docRef);
   }
+
 
   editUserDetail() {
     let dialog = this.dialog.open(DialogEditUserComponent);
@@ -58,11 +54,13 @@ export class UserDetailComponent implements OnInit {
     dialog.componentInstance.userId = this.userId;
   }
 
+
   editAddress() {
     let dialog = this.dialog.open(DialogEditAddressComponent);
     dialog.componentInstance.user = new User(this.user);
     dialog.componentInstance.userId = this.userId;
   }
+
 
   editBankDetails() {
     let dialog = this.dialog.open(DialogEditBankDetailsComponent);
@@ -77,11 +75,10 @@ export class UserDetailComponent implements OnInit {
     dialog.componentInstance.userId = this.userId;
   }
 
+
   editFeedback() {
     let dialog = this.dialog.open(DialogEditFeedbackComponent);
     dialog.componentInstance.user = new User(this.user);
     dialog.componentInstance.userId = this.userId;
   }
 }
-
-

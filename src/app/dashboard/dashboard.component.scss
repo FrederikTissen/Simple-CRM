@@ -1,15 +1,10 @@
-/*.dashboard {
-    display: flex;
-    justify-content: space-between;
-}*/
-
 .first-row {
     display: grid;
+    justify-content: center;
     margin-bottom: 32px;
     grid-template-columns: 30% 30% 30%;
     gap: 32px;
 }
-
 
 
 .total-number {
@@ -18,9 +13,11 @@
     font-size: clamp(16px,3.5vw,55px);
 }
 
+
 .mb-32 {
     margin-bottom: 32px;
 }
+
 
 @media (max-width: 860px) {
     .total-number {
@@ -39,6 +36,4 @@
         padding-top: 16px;
         padding-bottom: unset;
     }
-
-
 }

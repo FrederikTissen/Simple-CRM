@@ -8,21 +8,17 @@ import { Chart } from 'chart.js/auto';
   styleUrls: ['./bar-chart.component.scss']
 })
 export class BarChartComponent implements OnInit {
-
   public chart: any;
  
-
-  constructor() { }
 
   ngOnInit(): void {
     this.createChart();
   }
 
+
   createChart(){
-  
     this.chart = new Chart("MyChart", {
       type: 'bar', //this denotes tha type of chart
-
       data: {// values on X-Axis
         labels: ['2022-07-27', '2022-07-28', '2022-07-29','2023-06-30',
 								 '2023-07-01', '2023-07-02', '2023-07-03','2023-07-04', ], 
@@ -44,9 +40,6 @@ export class BarChartComponent implements OnInit {
       options: {
         aspectRatio:2.5
       }
-      
     });
   }
-
-
 }

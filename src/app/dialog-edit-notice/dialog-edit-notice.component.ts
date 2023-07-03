@@ -11,12 +11,9 @@ import { Router } from '@angular/router';
   styleUrls: ['./dialog-edit-notice.component.scss']
 })
 export class DialogEditNoticeComponent implements OnInit {
-
-  firestore: Firestore = inject(Firestore);
   app = initializeApp(this.firestore.app.options);
   db = getFirestore(this.app);
   dbRef = collection(this.db, "users");
-
   userId!: string;
   docRef: any;
   updateData: any;
@@ -24,36 +21,28 @@ export class DialogEditNoticeComponent implements OnInit {
   loading = false;
 
 
-  constructor(public dialogRef: MatDialogRef<DialogEditNoticeComponent>, private router: Router) {
-
-  }
+  constructor(public dialogRef: MatDialogRef<DialogEditNoticeComponent>, private router: Router, private firestore: Firestore = inject(Firestore)) {}
 
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
 
+  //Update user data
   saveUser() {
-
     this.docRef = doc(this.db, "users", this.userId);
     this.updateData = this.user.toJSON();
-
     updateDoc(this.docRef, this.updateData)
     .then(()=> {
       console.log('Data Updated', this.updateData);
       this.dialogRef.close()
-
       this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
         this.router.navigate(['/']);
         this.router.navigate([`/user/${this.userId}`]);
       });
-
     })
     .catch((err)=> {
       console.log(err);
       this.dialogRef.close()
     })
   }
-
 }

@@ -5,7 +5,6 @@ import { UserComponent } from './user/user.component';
 import { UserDetailComponent } from './user-detail/user-detail.component';
 import { CalenderComponent } from './calender/calender.component';
 
-import { AppComponent } from './app.component';
 
 const routes: Routes = [
   {path: '', component: DashboardComponent},

@@ -1,8 +1,6 @@
 <mat-drawer-container class="example-container" autosize>
   <mat-drawer #drawer class="sidenav" [opened]="true" mode="side">
     <div class="logo-container"></div>
-
-
     <ul class="menu-items">
       <li routerLink='/dashboard'><mat-icon>fact_check</mat-icon>Dashboard</li>
       <li routerLink='/user'><mat-icon>perm_identity</mat-icon>User</li>
@@ -20,12 +18,12 @@
   </mat-drawer>
   <div>
     <mat-toolbar style="background-color: rgba(52, 61, 70); color: #f9c732;">
-      <mat-toolbar-row  >
-        <mat-icon (click)="drawer.toggle()" class="menu-icon pointer" >menu</mat-icon>
+      <mat-toolbar-row>
+        <mat-icon (click)="drawer.toggle()" class="menu-icon pointer">menu</mat-icon>
         <span (click)="drawer.toggle()" class="pointer">Simple CRM</span>
         <img class="logout-img pointer" [matMenuTriggerFor]="logOut" src="assets/img/male.png" alt="">
         <mat-menu #logOut="matMenu">
-          <button  (click)="logUserOut()" mat-menu-item>Log out</button>
+          <button (click)="logUserOut()" mat-menu-item>Log out</button>
         </mat-menu>
       </mat-toolbar-row>
     </mat-toolbar>
@@ -41,7 +39,7 @@
     </mat-card-header>
     <mat-card-content>
       <div class="input-fields login">
-        <mat-form-field  appearance="outline">
+        <mat-form-field style="margin-right: 16px;" appearance="outline">
           <mat-label>Email</mat-label>
           <input #loginEmail matInput>
           <mat-hint class="warning-input" *ngIf="falseLoginData">Please enter a valid email address</mat-hint>
@@ -64,9 +62,9 @@
     <mat-card-header class="header-address mb-16">
       <mat-card-title>Sign Up</mat-card-title>
     </mat-card-header>
-    <mat-card-content>
+    <mat-card-content class="sign-up-input-fields">
       <div class="input-fields login">
-        <mat-form-field appearance="outline">
+        <mat-form-field style="margin-right: 16px;" appearance="outline">
           <mat-label>First Name</mat-label>
           <input #firstName [(ngModel)]="userLogin.firstName" matInput>
         </mat-form-field>
@@ -74,7 +72,9 @@
           <mat-label>Last Name</mat-label>
           <input #lastName [(ngModel)]="userLogin.lastName" matInput>
         </mat-form-field>
-        <mat-form-field appearance="outline">
+      </div>
+      <div class="input-fields login">
+        <mat-form-field style="margin-right: 16px;" appearance="outline">
           <mat-label>Email</mat-label>
           <input #email [(ngModel)]="userLogin.email" matInput>
         </mat-form-field>
@@ -89,15 +89,12 @@
       </div>
     </mat-card-content>
   </mat-card>
-
-  <mat-card  class="login-background-message">
+  <mat-card class="login-background-message">
     <mat-card-header class="message">
-      <mat-card-title>To use this CRM your screen needs 
-        <br> a minimum width of 720px.<br> <br>
-        Please turn your screen or use a tablet/laptop! 
-      
-    </mat-card-title>
+      <mat-card-title>To use this CRM your screen needs
+        <br> a minimum width of 650px.<br> <br>
+        Please turn your screen or use a tablet/laptop!
+      </mat-card-title>
     </mat-card-header>
   </mat-card>
-
 </div>

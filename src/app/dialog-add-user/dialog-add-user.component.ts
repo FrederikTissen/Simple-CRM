@@ -1,8 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { Firestore, collection, collectionData } from '@angular/fire/firestore';
-import { Observable } from 'rxjs';
+import { Firestore, collection } from '@angular/fire/firestore';
 import { User } from 'src/models/user.class';
-import { addDoc, doc, setDoc } from "firebase/firestore";
+import { addDoc } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { MatDialogRef } from '@angular/material/dialog';
@@ -14,25 +13,17 @@ import { MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./dialog-add-user.component.scss']
 })
 export class DialogAddUserComponent {
-  firestore: Firestore = inject(Firestore);
   app = initializeApp(this.firestore.app.options);
   db = getFirestore(this.app);
-
   user = new User();
   birthDateUser: Date = new Date;
   date: any;
-
-
   loading = false;
-
   dbRef = collection(this.db, "users");
 
 
-  constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>) {
-
-
-  }
-
+  constructor(public dialogRef: MatDialogRef<DialogAddUserComponent>, private firestore: Firestore = inject(Firestore)) {}
+  
   async saveUser() {
     this.user.birthDate = this.birthDateUser.getTime();
     this.loading = true;
@@ -44,5 +35,4 @@ export class DialogAddUserComponent {
         this.dialogRef.close();
       })
   }
-
 }

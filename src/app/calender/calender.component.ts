@@ -39,7 +39,6 @@ function ceilToNearest(amount: number, precision: number) {
   encapsulation: ViewEncapsulation.None,
 })
 export class CalenderComponent implements OnInit {
-
   viewDate = new Date();
   weekStartsOn: 0 = 0;
   dragToCreateActive = false;
@@ -48,10 +47,12 @@ export class CalenderComponent implements OnInit {
   slots: any[] = [];
   constructor(private cdr: ChangeDetectorRef) {}
 
+
   ngOnInit(): void {
     this.initDays();
   }
 
+  
   initDays() {
     this.days = [
       'Sunday',
@@ -127,6 +128,7 @@ export class CalenderComponent implements OnInit {
       });
   }
 
+
   private refresh() {
     this.events = [...this.events];
     this.cdr.detectChanges();
@@ -137,11 +139,13 @@ export class CalenderComponent implements OnInit {
     return new Date(t).toTimeString();
   }
 
+
   convertDay(d: string | number | Date) {
     return new Date(d).toLocaleString('en-us', {
       weekday: 'long',
     });
   }
+
 
   getSlots() {
     this.slots.map((day, i) => {
@@ -158,12 +162,12 @@ export class CalenderComponent implements OnInit {
     });
   }
 
+
   removeSlot(id: string | number | undefined) {
     for (let j = 0; j < this.slots.length; j++) {
       this.slots[j].time = this.slots[j].time.filter((t: { id: string | number | undefined; }) => t.id !== id);
     }
   }
-
 }
 
 

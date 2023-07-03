@@ -1,16 +1,12 @@
 <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar>
 <h1 mat-dialog-title>Edit Feedback</h1>
 <div style="overflow: visible" mat-dialog-content>
-
     <div class="notice-section">
         <mat-form-field class="notice-section" class="full-width" appearance="outline">
             <mat-label>Feedback</mat-label>
             <textarea [disabled]="loading" [(ngModel)]="user.feedback" matInput></textarea>
-            <!--<mat-hint>Please enter a name</mat-hint>-->
         </mat-form-field>
     </div>
-
-
 </div>
 <div mat-dialog-actions>
     <button (click)="dialogRef.close()" mat-button>Cancel</button>

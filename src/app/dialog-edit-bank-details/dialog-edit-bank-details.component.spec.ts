@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DialogEditBankDetailsComponent } from './dialog-edit-bank-details.component';
 
 describe('DialogEditBankDetailsComponent', () => {

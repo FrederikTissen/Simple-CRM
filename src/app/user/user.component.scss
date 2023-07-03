@@ -1,5 +1,5 @@
 .add-user-btn {
-    position: absolute;
+    position: fixed;
     right: 56px;
     bottom: 56px;
     background-color: rgba(52, 61, 70);
@@ -33,10 +33,20 @@
         height: 48px;
         padding-left: 15px;
         padding-right: 15px;
-
     }
 
     button {
         scale: 0.7;
     }
 }
+
+
+@media (max-width: 850px) {
+    .add-user-btn {
+        right: 20px;
+        bottom: 20px;
+    }
+}
+
+
+

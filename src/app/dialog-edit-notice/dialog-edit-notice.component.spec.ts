@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { DialogEditNoticeComponent } from './dialog-edit-notice.component';
 
 describe('DialogEditNoticeComponent', () => {

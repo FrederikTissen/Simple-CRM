@@ -3,13 +3,16 @@
     background-color: rgb(237, 237, 235);
 }
 
+
 .menu-icon {
     padding-right: 16px;
 }
 
+
 .pointer {
     cursor: pointer;
 }
+
 
 .sidenav {
     width: 200px;
@@ -17,15 +20,18 @@
     color: white;
 }
 
+
 .login-btn {
     display: flex;
     padding: 0;
     justify-content: space-between;
 }
 
+
 .mb-16 {
     margin-bottom: 16px;
 }
+
 
 .logout-img {
     width: 30px;
@@ -38,6 +44,7 @@
     right: 20px;
 }
 
+
 .logo-container {
     padding-left: 16px;
     padding-right: 16px;
@@ -45,10 +52,12 @@
     height: 56px;
  }
 
+
  .mat-toolbar-row, .mat-toolbar {
     min-height: 56px;
     height: 56px;
  }
+
 
  .menu-items {
     list-style-type: none;
@@ -73,6 +82,7 @@
     }
  }
 
+
  .router-container {
     padding-left: 56px;
     padding-right: 56px;
@@ -81,6 +91,7 @@
     max-width: 1000px;
     margin-top: 32px;
  }
+
 
  .login-background {
     display: flex;
@@ -95,19 +106,22 @@
     background-color: white;
 }
 
+
 .login {
     display: flex;
-    flex-direction: column;
 }
+
 
 .warning-input {
     width: 100%; 
     color: red;
 }
 
+
 .message {
     text-align: center;
 }
+
 
 .login-background-message {
     display: none;
@@ -122,12 +136,20 @@
     background-color: white;
 }
 
-@media (max-width: 720px) {
-    
+
+@media (max-width: 650px) {
     .login-background-message {
         display: flex;
     }
+}
 
+
+@media (max-width: 750px) {
+    .router-container {
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 0px;
+     }
 }
 
  

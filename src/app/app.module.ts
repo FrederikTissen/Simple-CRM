@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -11,8 +10,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { UserComponent } from './user/user.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { FormControl, FormsModule } from '@angular/forms';
-import { TooltipPosition } from '@angular/material/tooltip';
+import { FormsModule } from '@angular/forms';
 import { DialogAddUserComponent } from './dialog-add-user/dialog-add-user.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
@@ -36,14 +34,9 @@ import { DialogEditNoticeComponent } from './dialog-edit-notice/dialog-edit-noti
 import { DialogEditFeedbackComponent } from './dialog-edit-feedback/dialog-edit-feedback.component';
 import { MatRadioModule } from '@angular/material/radio';
 import { BarChartComponent } from './bar-chart/bar-chart.component';
-
-import { MatTableModule } from '@angular/material/table';
 import { EmailChartComponent } from './email-chart/email-chart.component';
 import { CalenderComponent } from './calender/calender.component';
-
 import { CommonModule } from '@angular/common';
-
-
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { LegalNoticeComponent } from './legal-notice/legal-notice.component';
@@ -54,16 +47,9 @@ import { LineChartComponent } from './line-chart/line-chart.component';
 
 
 
-
-
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
-
     DashboardComponent,
     UserComponent,
     DialogAddUserComponent,
@@ -80,7 +66,6 @@ import { LineChartComponent } from './line-chart/line-chart.component';
     PrivacyPolicyComponent,
     DescriptionComponent,
     LineChartComponent
-
   ],
   imports: [
     BrowserModule,
